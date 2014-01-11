@@ -1,0 +1,101 @@
+/* @import url(http://fonts.googleapis.com/css?family=Architects+Daughter); */
+
+body{
+    font-family: "Architects Daughter", "Segoe Print", Calibri, Arial, cursive, sans-serif;
+}
+button{
+    font-family: "Architects Daughter", "Segoe Print", Calibri, Arial, cursive, sans-serif;
+}
+.button_container button, #overflow{
+    border: 5px outset;
+}
+
+form{
+    overflow: auto;
+    margin: 5px;
+}
+
+form{
+    float: right;
+}
+
+fieldset{
+    width: 138px;
+    text-align: center;
+}
+fieldset.disabled{
+    color: grey;
+    background-color: whitesmoke;
+}
+
+fieldset p{
+    margin: -5px;
+}
+
+#content{
+    float: left;
+    border: 3px inset orange;
+    margin: 5px;
+    margin-top: 14px;
+    height: 213px;
+    min-width: 120px;
+    padding: 5px;
+    text-align: center;
+    display:table;
+    background-image: url("http://www.foundation3d.com/uploads/general/2012/07/8-05-542652.jpg");
+}
+
+.error{
+    text-align: center;
+    border: solid red 5px;
+    color: red;
+    clear: both;
+    display: none;
+}
+
+#overflow{
+    position: absolute;
+    left: -100px;
+    
+    animation: animation_overflow_out 0.5s ease 0 normal forwards, easteregg 5s ease infinite;
+    -webkit-animation: animation_overflow_out 0.5s ease 0 normal forwards/* , MAKE THESE DARN CARDS ROTATE easteregg 5s ease infinite */;
+}
+#overflow:hover{
+    animation: animation_overflow_in 1s ease 0 normal forwards;
+    -webkit-animation: animation_overflow_in 1s ease 0 normal forwards;
+}
+@keyframes animation_overflow_in{
+    from {left: -100px;}
+    to {left: 20px;}
+}
+@keyframes animation_overflow_out{
+    from {left: 20px;}
+    to {left: -100px;}
+}
+@keyframes easteregg{
+    0% {transform: rotate(0)}
+    100% {transform: rotate(360deg)}
+}
+
+.button_container{
+    vertical-align: middle;
+    display:table-cell;
+}
+
+.clearRight{
+    clear: right;
+}
+
+#cards{
+    float: left;
+    padding-left: 150px;
+}
+#yourCard{
+    float: right;
+}
+#cardContainer{
+    padding: 21px;
+    border: green inset 5px;
+    
+    background-color: transparent;
+}
