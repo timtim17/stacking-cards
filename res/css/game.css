@@ -1,4 +1,4 @@
-/* @import url(http://fonts.googleapis.com/css?family=Architects+Daughter); */
+@import url(http://fonts.googleapis.com/css?family=Architects+Daughter);
 
 body{
     font-family: "Architects Daughter", "Segoe Print", Calibri, Arial, cursive, sans-serif;
@@ -58,7 +58,7 @@ fieldset p{
     left: -100px;
     
     animation: animation_overflow_out 0.5s ease 0 normal forwards, easteregg 5s ease infinite;
-    -webkit-animation: animation_overflow_out 0.5s ease 0 normal forwards/* , MAKE THESE DARN CARDS ROTATE easteregg 5s ease infinite */;
+    -webkit-animation: animation_overflow_out 0.5s ease 0 normal forwards, easteregg 5s ease infinite;
 }
 #overflow:hover{
     animation: animation_overflow_in 1s ease 0 normal forwards;

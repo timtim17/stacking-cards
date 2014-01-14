@@ -1,69 +1,73 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>Stacking Cards</title>
+    <head>
+        <title>Stacking Cards</title>
 
-<link rel="stylesheet" href="res/css/game.css" />
-<script src="res/scripts/jquery.min.js"></script>
-<script src="res/scripts/jquery-ui.min.js"></script>
-<script src="res/scripts/card.js"></script>
-<script src="res/scripts/carddeck.js"></script>
-<script src="res/scripts/stack.js"></script>
-<script src="res/scripts/holder_overflow.js"></script>
-<script src="res/scripts/game.js"></script>
-</head>
-<body>
-<div class="error" id="error_window_width_toosmall">
-    <h1 class="error_title">Window too Small</h1>
-    <h2 class="error_subtitle">Please Expand Window</h2>
-    <button id="error_button_check">Recheck</button>
-</div>
-<div id="content">
-    <div class="button_container">
-        
-        <button type="button" id="overflow">
-            <img src="res/img/cards/back_vertical.png" width=100 height=150 />
-        </button>
-        <!--
-                        CARDS: http://www.jfitz.com/cards/
-        <button type="button">
-            <img src="res/img/cards/hearts/1.png" width=100 height=150 />
-        </button>
-        <button type="button">
-            <img src="res/img/cards/hearts/1.png" width=100 height=150 />
-        </button>
-        <button type="button">
-            <img src="res/img/cards/hearts/1.png" width=100 height=150 />
-        </button>
-        -->
-        <span id="cards" />
-    </div>
+        <link rel="stylesheet" href="res/css/game.css" />
+        <!-- script src="res/scripts/jquery.min.js"></script>
+        <script src="res/scripts/jquery-ui.min.js"></script> -->
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script src="res/scripts/card.js"></script>
+        <script src="res/scripts/carddeck.js"></script>
+        <script src="res/scripts/stack.js"></script>
+        <script src="res/scripts/holder_overflow.js"></script>
+        <script src="res/scripts/game.js"></script>
+    </head>
     
-    <button id="cardContainer">
-        <img src="" width=100 height=150 id="yourCard" title="This card is the card you currently hold. Use it on a stack over on the left." />
-    </button>
-</div>
+    <body>
+        <div class="error" id="error_window_width_toosmall">
+            <h1 class="error_title">Window too Small</h1>
+            <h2 class="error_subtitle">Please Expand Window</h2>
+            <button id="error_button_check">Recheck</button>
+        </div>
+        <div id="content">
+            <div class="button_container">
+        
+                <button type="button" id="overflow">
+                    <img src="res/img/cards/back_vertical.png" width=100 height=150 />
+                </button>
+                <!--
+                                CARDS: http://www.jfitz.com/cards/
+                <button type="button">
+                    <img src="res/img/cards/hearts/1.png" width=100 height=150 />
+                </button>
+                <button type="button">
+                    <img src="res/img/cards/hearts/1.png" width=100 height=150 />
+                </button>
+                <button type="button">
+                    <img src="res/img/cards/hearts/1.png" width=100 height=150 />
+                </button>
+                -->
+                <span id="cards" />
+            </div>
+    
+            <button id="cardContainer">
+                <img src="" width=100 height=150 id="yourCard" title="This card is the card you currently hold. Use it on a stack over on the left." />
+            </button>
+        </div>
 
-<form>
-    <fieldset name="stacks">
-        <legend>Difficulty</legend>
-            <input type="radio" name="stacks" value="1" id="radio_stack_three" checked>Easy (3 Stacks)</input>
-            <br />
-        <input type="radio" name="stacks" value="2" id="radio_stack_two"><span style="font-size: small;">Medium (2 Stacks)</span></input>
-            <br />
-                <input type="radio" name="stacks" value="3" id="radio_stack_one">Hard (1 Stack)</input>
-     </fieldset>
-    <fieldset name="stats" class="clearRight disabled" disabled>
-        <legend>Statistics</legend>
-            <p>Not Ready</p>
-    </fieldset>
-    <fieldset name="controls" class="clearRight">
-        <legend>Controls</legend>
-            <button type="button" id="generate">Regenerate</button>
-            <br />
-            <button type="button" id="save" disabled>Save</button>
-            <button type="button" id="load" disabled>Load</button>
-    </fieldset>
-</form>
-</body>
+        <form>
+            <fieldset name="stacks">
+                <legend>Difficulty</legend>
+                    <input type="radio" name="stacks" value="1" id="radio_stack_three" checked>Easy (3 Stacks)</input>
+                    <br />
+                <input type="radio" name="stacks" value="2" id="radio_stack_two"><span style="font-size: small;">Medium (2 Stacks)</span></input>
+                    <br />
+                        <input type="radio" name="stacks" value="3" id="radio_stack_one">Hard (1 Stack)</input>
+             </fieldset>
+            <fieldset name="stats" class="clearRight disabled" disabled>
+                <legend>Statistics</legend>
+                    <p>Not Ready</p>
+            </fieldset>
+            <fieldset name="controls" class="clearRight">
+                <legend>Controls</legend>
+                    <button type="button" id="generate">Regenerate</button>
+                    <br />
+                    <button type="button" id="save" disabled>Save</button>
+                    <button type="button" id="load" disabled>Load</button>
+            </fieldset>
+        </form>
+    </body>
 </html>
