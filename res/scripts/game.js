@@ -22,10 +22,10 @@ $(window).ready(function () {
     var heldCard = null;
 
     /*
-	 * Check that the width of the screen is big enough.
-	 * If it isn't, show an error message.
-	 * If it is, hide the error message.
-	 */
+    * Check that the width of the screen is big enough.
+    * If it isn't, show an error message.
+    * If it is, hide the error message.
+    */
     setInterval(function () {
         $('#content').css('width', $(window).width() - 222);
         if ($(window).width() < 650) {
