@@ -57,8 +57,8 @@ fieldset p{
     position: absolute;
     left: -100px;
     
-    animation: animation_overflow_out 0.5s ease 0 normal forwards, easteregg 5s ease infinite;
-    -webkit-animation: animation_overflow_out 0.5s ease 0 normal forwards, easteregg 5s ease infinite;
+    animation: animation_overflow_out 0.5s ease 0 normal forwards*/, easteregg 5s ease infinite*/;
+    -webkit-animation: animation_overflow_out 0.5s ease 0 normal forwards/*, easteregg 5s ease infinite*/;
 }
 #overflow:hover{
     animation: animation_overflow_in 1s ease 0 normal forwards;

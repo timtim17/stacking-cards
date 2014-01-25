@@ -1,4 +1,4 @@
-$(window).ready(function () {
+$(window).ready(function(){
     // Initialize some vars.
     var radio_stack_one = document.getElementById('radio_stack_one');
     var radio_stack_two = document.getElementById('radio_stack_two');
@@ -18,27 +18,30 @@ $(window).ready(function () {
 
     var error_window_width_button_check = document.getElementById('error_button_check');
 
-    var carddeck = new Carddeck();
     var heldCard = null;
+    function changeHeldCard(card){
+        heldCard = card;
+        stack_held.setAttribute('img', heldCard.img);
+    }
 
     /*
-	 * Check that the width of the screen is big enough.
-	 * If it isn't, show an error message.
-	 * If it is, hide the error message.
-	 */
+    * Check that the width of the screen is big enough.
+    * If it isn't, show an error message.
+    * If it is, hide the error message.
+    */
     setInterval(function () {
         $('#content').css('width', $(window).width() - 222);
-        if ($(window).width() < 650) {
+        if ($(window).width() < 908) {
             $('form, #content').hide(500);
             $('.error').slideDown({
                 easing: 'easeInBounce',
                 duration: 500
             });
         }
-    }, 100)
+    }, 100);
 
     function checkWidth() {
-        if ($(window).width() < 650) {
+        if ($(window).width() < 908) {
             $('form, #content').hide(500);
             $('.error').slideDown({
                 easing: 'easeInBounce',
@@ -55,10 +58,6 @@ $(window).ready(function () {
         }
     }
 
-    checkWidth();
-
-    /* TBD - To Be Done */
-
     button_gen.addEventListener('click', function () {
         regenerate();
     });
@@ -71,22 +70,23 @@ $(window).ready(function () {
         }
     });
 
-    /*$('overflow').click(function(){
-    var overflow = new OverflowHF();
-    overflow.addACard(); */
+    $('#overflow').click(function(){
+        overflow.addACard(heldCard);
+        changeHeldCard(generateRandomCard());
+    });
 
     function generateRandomCard() {
         var selectCardInvalidValue = true;
         while (selectCardInvalidValue) {
-            var selectCard = Math.floor(Math.random() * carddeck.cards.length - 1);
+            var selectCard = Math.floor(Math.random() * deck.cards.length - 1);
             if (selectCard > 0) {
                 selectCardInvalidValue = false;
             }
         }
         console.log(selectCard);
-        var card = carddeck.cards[selectCard];
-        carddeck.cards.splice(selectCard, 1);
-        console.log(carddeck);
+        var card = deck.cards[selectCard];
+        deck.cards.splice(selectCard, 1);
+        console.log(deck);
 
         return card;
     }
@@ -99,28 +99,28 @@ $(window).ready(function () {
             stack_two = new Stack(generateRandomCard());
             stack_three = new Stack(generateRandomCard());
 
-            stack_one = stack_one.createStack();
-            stack_two = stack_two.createStack();
-            stack_three = stack_three.createStack();
+            stack_one = stack_one.createStack(1);
+            stack_two = stack_two.createStack(2);
+            stack_three = stack_three.createStack(3);
         } else if (radio_stack_two.checked) {
             stack_one = new Stack(generateRandomCard());
             stack_two = new Stack(generateRandomCard());
             stack_three = null;
 
-            stack_one = stack_one.createStack();
-            stack_two = stack_two.createStack();
+            stack_one = stack_one.createStack(1);
+            stack_two = stack_two.createStack(2);
         } else if (radio_stack_one.checked) {
             stack_one = new Stack(generateRandomCard());
             stack_two = null;
             stack_three = null;
 
-            stack_one = stack_one.createStack();
+            stack_one = stack_one.createStack(1);
         }
 
-        carddeck.createStockDeck();
+        deck.createStockDeck();
 
-        // Log the carddeck to make sure it is correct.
-        console.log(carddeck);
+        // Log the deck to make sure it is correct.
+        console.log(deck);
 
         heldCard = generateRandomCard();
         stack_held.setAttribute('src', heldCard.img);
