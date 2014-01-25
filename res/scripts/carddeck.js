@@ -1,7 +1,7 @@
-function Carddeck(){
-    this.cards = [];
+var deck = {
+    cards: [],
     
-    this.createStockDeck = function(){
+    createStockDeck: function(){
         var i;
         for(i = 1; i <= 13; i++){
             if(i > 10){
@@ -89,3 +89,5 @@ function Carddeck(){
         }
     }
 }
+
+deck.createStockDeck();
