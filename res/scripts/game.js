@@ -16,7 +16,7 @@ $(window).ready(function(){
 
     var stack_container = document.getElementById('cards');
 
-    var error_window_width_button_check = document.getElementById('error_button_check');
+    // var error_window_width_button_check = document.getElementById('error_button_check');
 
     var heldCard = null;
     function changeHeldCard(card){
@@ -29,18 +29,11 @@ $(window).ready(function(){
     * If it isn't, show an error message.
     * If it is, hide the error message.
     */
-    setInterval(function () {
-        $('#content').css('width', $(window).width() - 222);
-        if ($(window).width() < 908) {
-            $('form, #content').hide(500);
-            $('.error').slideDown({
-                easing: 'easeInBounce',
-                duration: 500
-            });
-        }
-    }, 100);
+    window.addEventListener('resize', checkWidth);
+    
 
     function checkWidth() {
+        $('#content').css('width', $(window).width() - 222);
         if ($(window).width() < 908) {
             $('form, #content').hide(500);
             $('.error').slideDown({
@@ -57,18 +50,20 @@ $(window).ready(function(){
             return true;
         }
     }
+    
+    checkWidth();
 
     button_gen.addEventListener('click', function () {
         regenerate();
     });
 
-    error_window_width_button_check.addEventListener('click', function () {
+    /*error_window_width_button_check.addEventListener('click', function () {
         if (!checkWidth()) {
             error_window_width_button_check.innerHTML = "Window Still Too Small";
         } else {
             error_window_width_button_check.innerHTML = "Recheck";
         }
-    });
+    });*/
 
     $('#overflow').click(function(){
         overflow.addACard(heldCard);
@@ -76,9 +71,10 @@ $(window).ready(function(){
     });
 
     function generateRandomCard() {
+        var selectCard;
         var selectCardInvalidValue = true;
         while (selectCardInvalidValue) {
-            var selectCard = Math.floor(Math.random() * deck.cards.length - 1);
+            selectCard = Math.floor(Math.random() * deck.cards.length - 1);
             if (selectCard > 0) {
                 selectCardInvalidValue = false;
             }
